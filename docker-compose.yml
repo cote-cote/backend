@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0.5-alpine
+    hostname: hostname-redis
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}
+
+  mysql:
+    image: mysql:8.0.31
+    hostname: hostname-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+
+  app:
+    build: .
+    image: cote
+    volumes:
+      - .:/app
+    environment:
+      ENV: dev
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    depends_on:
+      - redis
+      - mysql
+    ports:
+      - 8080:8080
+    command: |
+      sh -c "./scripts/wait-for-it.sh mysql:3306 --
+             ./scripts/wait-for-it.sh redis:6379 --
+             uvicorn app.main:app --host=0.0.0.0 --port=8080 --reload"

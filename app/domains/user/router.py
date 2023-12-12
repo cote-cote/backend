@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from starlette.responses import Response
 
+from app.configs import get_settings, Settings
 from app.domains.user import request
 from app.domains.user.service import UserService
 
@@ -21,9 +22,15 @@ def sign_in(
         response: Response,
         request_body: request.UserSignin,
         user_service: UserService = Depends(),
+        settings: Settings = Depends(get_settings)
 ):
     token = user_service.sign_in(request_body=request_body)
-    response.set_cookie(key="token", value=token.value, httponly=True, secure=True)
+    response.set_cookie(
+        key="token",
+        value=token.value,
+        httponly=True if settings.ENV == 'prod' else False,
+        secure=True if settings.ENV == 'prod' else False
+    )
     return token
 
 
