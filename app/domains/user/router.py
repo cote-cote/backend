@@ -23,7 +23,7 @@ def sign_in(
         user_service: UserService = Depends(),
 ):
     token = user_service.sign_in(request_body=request_body)
-    response.set_cookie(key="token", value=token.value)
+    response.set_cookie(key="token", value=token.value, httponly=True, secure=True)
     return token
 
 
