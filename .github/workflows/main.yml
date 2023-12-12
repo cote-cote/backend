@@ -7,7 +7,8 @@ on:
     branches: [ "develop" ]
 
 permissions:
-  contents: read
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
 
 jobs:
   build:
@@ -36,6 +37,10 @@ jobs:
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_NAME }}
         aws-region: ap-northeast-2
+
+    - name: Get Github Actions IP
+      id: ip
+      uses: haythem/public-ip@v1.2
 
     - name: Add Github Actions IP to Security group
       run: |
