@@ -50,10 +50,12 @@ jobs:
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.SSH_HOST }}
+        port: ${{ secrets.SSH_PORT }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: ls ci_test
+        script_stop: true
+        script: |
+          ls ci_test
 
     - name: Remove Github Actions IP From Security Group
       run: |
