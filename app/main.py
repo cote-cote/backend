@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from app.configs import get_settings, Settings
+from app.domains.test.router import router as test_router
 from app.domains.user.router import router as user_router
 
 
@@ -16,7 +17,8 @@ def create_app(settings: Settings = get_settings()) -> FastAPI:
         allow_headers=['*'],
     )
 
-    _app.include_router(user_router, prefix='/users', tags=['users'])
+    _app.include_router(router=test_router, prefix='/test', tags=['test'])
+    _app.include_router(router=user_router, prefix='/users', tags=['users'])
     return _app
 
 
