@@ -6,12 +6,20 @@ class BaseRequestException(Exception):
 
 
 class BadRequestException(BaseRequestException):
+    # 400
     pass
 
 
-class NotFoundException(BaseRequestException):
+class UnauthorizedException(BaseRequestException):
+    # 401
     pass
 
 
 class ForbiddenException(BaseRequestException):
+    # 403
+    pass
+
+
+class NotFoundException(BaseRequestException):
+    # 404
     pass
