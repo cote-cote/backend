@@ -5,12 +5,13 @@ from sqlalchemy import Column, String, DateTime, func, Integer, ForeignKey
 from sqlalchemy.orm import Mapped, relationship
 
 from app.db.models import Base
+from app.utils.uuid import generate_uuid
 
 
 class Cote(Base):
     __tablename__ = 'cote'
 
-    id: Mapped[int] = Column(String(36), primary_key=True, default=uuid.uuid4(), nullable=False)
+    id: Mapped[int] = Column(String(36), default=generate_uuid, primary_key=True, nullable=False)
     owner_id: Mapped[str] = Column(String(36), ForeignKey('user.id'), nullable=False)
     name: Mapped[str] = Column(String(255), nullable=False)
     problem_url: Mapped[str] = Column(String(500), nullable=False)
