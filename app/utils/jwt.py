@@ -5,8 +5,6 @@ from fastapi import Depends
 from jwt import InvalidSignatureError
 
 from app.configs import Settings, get_settings
-from app.db.models import User
-from app.domains.user import response
 
 
 class JwtUtil:
@@ -16,17 +14,13 @@ class JwtUtil:
     ):
         self.settings = settings
 
-    def encode_user(self, user: User) -> response.Token:
-        payload = {
+    def encode(self, payload: dict[str, any]) -> str:
+        _payload = {
             "exp": datetime.utcnow() + timedelta(minutes=30),
             "iat": datetime.utcnow(),
-            "data": {
-                "id": user.id,
-                "name": user.name,
-                "email": user.email
-            }
+            "data": payload
         }
-        return jwt.encode(payload=payload, key=self.settings.JWT_SECRET, algorithm="HS256")
+        return jwt.encode(payload=_payload, key=self.settings.JWT_SECRET, algorithm="HS256")
 
     def decode(self, token: str) -> dict[str, any]:
         try:
