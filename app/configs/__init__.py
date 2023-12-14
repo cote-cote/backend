@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 
 from pydantic.v1 import BaseSettings
 
@@ -23,7 +24,18 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
+    REDIS_HOST: str
+    REDIS_PORT: int
+    REDIS_PASSWORD: Optional[str]
+    REDIS_TTL_SEC: int = 24 * 60
+    REDIS_LOCK_TIMEOUT: int = 5
+    REDIS_BLOCKING_TIMEOUT: int = 10
+
     JWT_SECRET: str = "SECRET_KEY"
+
+    GITHUB_API_BASE_URL: str = "https://api.github.com"
+    GITHUB_CLIENT_ID: str
+    GITHUB_CLIENT_SECRET: str
 
     @property
     def DB_URL(self) -> str:
