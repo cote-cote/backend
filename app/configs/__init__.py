@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     REDIS_HOST: str
     REDIS_PORT: int
     REDIS_PASSWORD: Optional[str]
-    REDIS_TTL_SEC: int = 24 * 60
+    REDIS_TTL_SEC: int = 2 * 60 * 60
     REDIS_LOCK_TIMEOUT: int = 5
     REDIS_BLOCKING_TIMEOUT: int = 10
 
