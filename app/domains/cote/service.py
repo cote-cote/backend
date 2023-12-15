@@ -5,9 +5,9 @@ from app.configs import Settings, get_settings
 from app.db import get_db
 from app.domains.cote.crud import CoteCrud
 from app.domains.cote.schema import CoteResponse, CoteReadRequest, CoteCreateRequest, CoteModifyRequest
+from app.domains.oauth import UserInfo
 from app.exceptions import ForbiddenException
 from app.exceptions.error_code import ErrorCode
-from app.middlewares.auth import UserInfo
 from app.utils.jwt import JwtUtil
 from app.utils.redis_client import RedisClient, get_redis
 

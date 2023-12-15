@@ -1,12 +1,12 @@
 from http import HTTPStatus
-from typing import Annotated
 
 from fastapi import APIRouter, Depends
-from starlette.responses import JSONResponse
+from starlette.responses import Response
 
 from app.domains.cote.schema import CoteResponse, CoteReadRequest, CoteCreateRequest, CoteModifyRequest
 from app.domains.cote.service import CoteService
-from app.middlewares.auth import authenticate_request, UserInfo
+from app.domains.oauth import UserInfo
+from app.middlewares.auth import authenticate_request
 
 router = APIRouter()
 
@@ -55,4 +55,4 @@ def delete_cote(
         cote_service: CoteService = Depends()
 ):
     cote_service.delete_cote(cote_id=cote_id, user_info=user_info)
-    return JSONResponse(status_code=HTTPStatus.NO_CONTENT)
+    return Response(status_code=HTTPStatus.NO_CONTENT)

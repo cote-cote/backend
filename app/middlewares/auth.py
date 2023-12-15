@@ -1,22 +1,14 @@
-from typing import Annotated, Union
-
-from fastapi import Depends, Header, Security
-from fastapi.security import HTTPBearer, APIKeyHeader
-from pydantic import BaseModel
+from fastapi import Depends, Security
+from fastapi.security import APIKeyHeader
 from starlette.requests import Request
 
+from app.domains.oauth import UserInfo
 from app.exceptions import UnauthorizedException, BadRequestException
 from app.exceptions.error_code import ErrorCode
 from app.utils.jwt import JwtUtil
 from app.utils.redis_client import RedisClient, get_redis
 
-
 authorization_header = APIKeyHeader(name="Authorization")
-
-class UserInfo(BaseModel):
-    user_id: str
-    user_name: str
-    user_email: str
 
 
 def authenticate_request(
@@ -25,7 +17,7 @@ def authenticate_request(
         redis_client: RedisClient = Depends(get_redis),
         jwt_util: JwtUtil = Depends()
 ) -> UserInfo:
-    token = request.cookies.get("token")
+    token = request.cookies.get("access_token")
     if not token:
         token = authorization
         if not token:
@@ -48,5 +40,7 @@ def authenticate_request(
     return UserInfo(
         user_id=data["user_id"],
         user_name=data["user_name"],
-        user_email=data["user_email"]
+        user_email=data["user_email"],
+        user_token=token,
+        access_token=access_token
     )
