@@ -21,7 +21,7 @@ def authorize_user(
 ) -> dict[str, str]:
     token = user_service.authorize(request_body=request_body)
     response.set_cookie(
-        key="access_token",
+        key="user_token",
         value=token.value,
         httponly=True if settings.ENV == 'prod' else False,
         secure=True if settings.ENV == 'prod' else False
@@ -36,5 +36,5 @@ def sign_out(
         user_service: UserService = Depends()
 ):
     user_service.delete_user_session(user_info=user_info)
-    response.delete_cookie("access_token")
+    response.delete_cookie("user_token")
     return Response(status_code=HTTPStatus.NO_CONTENT)

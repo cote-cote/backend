@@ -8,7 +8,7 @@ from app.exceptions.error_code import ErrorCode
 from app.utils.jwt import JwtUtil
 from app.utils.redis_client import RedisClient, get_redis
 
-authorization_header = APIKeyHeader(name="Authorization")
+authorization_header = APIKeyHeader(name="Authorization",auto_error=False)
 
 
 def authenticate_request(
@@ -17,7 +17,7 @@ def authenticate_request(
         redis_client: RedisClient = Depends(get_redis),
         jwt_util: JwtUtil = Depends()
 ) -> UserInfo:
-    token = request.cookies.get("access_token")
+    token = request.cookies.get("user_token")
     if not token:
         token = authorization
         if not token:
