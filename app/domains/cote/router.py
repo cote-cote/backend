@@ -20,6 +20,16 @@ def get_cotes(
     return cotes
 
 
+@router.get("/{cote_id}")
+def get_cote(
+        cote_id: str,
+        user_info: UserInfo = Depends(authenticate_request),
+        cote_service: CoteService = Depends()
+) -> CoteResponse:
+    cote = cote_service.get_cote(cote_id=cote_id)
+    return cote
+
+
 @router.post("")
 def create_cote(
         request_body: CoteCreateRequest,
