@@ -39,6 +39,17 @@ class CoteService:
             ) for cote in cotes
         ]
 
+    def get_cote(self, cote_id: str) -> CoteResponse:
+        cote = self.cote_crud.find_cote_by_id(cote_id=cote_id)
+        return CoteResponse(
+            cote_id=cote.id,
+            cote_name=cote.name,
+            cote_problem_url=cote.problem_url,
+            cote_capacity=cote.capacity,
+            cote_created_date=cote.created_at,
+            cote_updated_date=cote.updated_at
+        )
+
     def create_cote(self, user_info: UserInfo, request_body: CoteCreateRequest) -> CoteResponse:
         cote = self.cote_crud.create_cote(
             name=request_body.name,
