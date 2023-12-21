@@ -3,10 +3,10 @@ from http import HTTPStatus
 from fastapi import APIRouter, Depends
 from starlette.responses import Response
 
-from app.domains.cote.schema import CoteResponse, CoteReadRequest, CoteCreateRequest, CoteModifyRequest
-from app.domains.cote.service import CoteService
-from app.domains.oauth import UserInfo
-from app.middlewares.auth import authenticate_request
+from app.legacy.domains.cote.schema import CoteResponse, CoteReadRequest, CoteCreateRequest, CoteModifyRequest
+from app.legacy.domains.cote.service import CoteService
+from app.legacy.domains.oauth import UserInfo
+from app.legacy.middlewares.auth import authenticate_request
 
 router = APIRouter()
 

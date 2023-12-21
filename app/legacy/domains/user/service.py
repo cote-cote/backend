@@ -4,14 +4,14 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from app.configs import get_settings, Settings
-from app.db import get_db
-from app.db.models import User
-from app.domains.oauth import OauthProvider
-from app.domains.oauth.github import GithubOauthProvider
-from app.domains.user.crud import UserCrud
-from app.domains.user.schema import RequestUserAuthorization, Token
-from app.exceptions import BadRequestException
-from app.middlewares.auth import UserInfo
+from app.legacy.db import get_db
+from app.legacy.db.models import User
+from app.legacy.domains.oauth import OauthProvider
+from app.legacy.domains.oauth.github import GithubOauthProvider
+from app.legacy.domains.user.crud import UserCrud
+from app.legacy.domains.user.schema import RequestUserAuthorization, Token
+from app.legacy.exceptions import BadRequestException
+from app.legacy.middlewares.auth import UserInfo
 from app.utils.jwt import JwtUtil
 from app.utils.password import PasswordUtil
 from app.utils.redis_client import get_redis, RedisClient

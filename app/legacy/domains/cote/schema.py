@@ -4,8 +4,8 @@ from typing import Optional
 from fastapi import Query
 from pydantic import BaseModel
 
-from app.exceptions import BadRequestException
-from app.exceptions.error_code import ErrorCode
+from app.legacy.exceptions import BadRequestException
+from app.legacy.exceptions.error_code import ErrorCode
 
 
 class CoteReadRequest:

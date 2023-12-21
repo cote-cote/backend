@@ -2,8 +2,8 @@ from fastapi import Depends
 from sqlalchemy import Engine
 from sqlalchemy.orm import DeclarativeMeta
 
-from app.db import get_engine
-from app.db.models import Base
+from app.legacy.db import get_engine
+from app.legacy.db.models import Base
 
 
 class TestingHelper:

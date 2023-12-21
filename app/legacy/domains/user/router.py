@@ -4,10 +4,10 @@ from fastapi import APIRouter, Depends
 from starlette.responses import Response
 
 from app.configs import get_settings, Settings
-from app.domains.oauth import UserInfo
-from app.domains.user.schema import RequestUserAuthorization
-from app.domains.user.service import UserService
-from app.middlewares.auth import authenticate_request
+from app.legacy.domains.oauth import UserInfo
+from app.legacy.domains.user.schema import RequestUserAuthorization
+from app.legacy.domains.user.service import UserService
+from app.legacy.middlewares.auth import authenticate_request
 
 router = APIRouter()
 

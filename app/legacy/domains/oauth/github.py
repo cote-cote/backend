@@ -1,7 +1,7 @@
 import requests
 from fastapi import Depends
 
-from app.domains.oauth import OauthProvider, UserInfo, get_client_id, get_client_secret
+from app.legacy.domains.oauth import OauthProvider, UserInfo, get_client_id, get_client_secret
 
 
 class GithubOauthProvider(OauthProvider):

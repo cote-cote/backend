@@ -2,10 +2,10 @@ from fastapi import Depends
 from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 
-from app.db import get_db
-from app.db.models.user import User
-from app.exceptions import BadRequestException
-from app.exceptions.error_code import ErrorCode
+from app.legacy.db import get_db
+from app.legacy.db.models.user import User
+from app.legacy.exceptions import BadRequestException
+from app.legacy.exceptions.error_code import ErrorCode
 
 
 class UserCrud:

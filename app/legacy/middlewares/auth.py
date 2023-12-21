@@ -2,9 +2,9 @@ from fastapi import Depends, Security
 from fastapi.security import APIKeyHeader
 from starlette.requests import Request
 
-from app.domains.oauth import UserInfo
-from app.exceptions import UnauthorizedException, BadRequestException
-from app.exceptions.error_code import ErrorCode
+from app.legacy.domains import UserInfo
+from app.legacy.exceptions import UnauthorizedException, BadRequestException
+from app.legacy.exceptions import ErrorCode
 from app.utils.jwt import JwtUtil
 from app.utils.redis_client import RedisClient, get_redis
 

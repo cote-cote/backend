@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from fastapi import Depends
 
 from app.configs import Settings, get_settings
-from app.domains.oauth.schema import UserInfo
+from app.legacy.domains.oauth.schema import UserInfo
 
 
 def get_client_id(settings: Settings = Depends(get_settings)):

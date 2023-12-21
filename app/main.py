@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from app.configs import get_settings, Settings
-from app.domains.cote.router import router as cote_router
-from app.domains.test.router import router as test_router
-from app.domains.user.router import router as user_router
+from app.legacy.domains.cote.router import router as cote_router
+from app.legacy.domains.test.router import router as test_router
+from app.legacy.domains.user import router as user_router
 
 
 def create_app(settings: Settings = get_settings()) -> FastAPI:
