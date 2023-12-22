@@ -4,7 +4,7 @@ from sqlalchemy import Column, String, DateTime, func, Integer, ForeignKey
 from sqlalchemy.orm import Mapped, relationship
 
 from app.legacy.db.models import Base
-from app.utils.uuid import generate_uuid
+from app.legacy.utils import generate_uuid
 
 
 class Cote(Base):

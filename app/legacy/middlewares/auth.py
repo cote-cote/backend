@@ -5,8 +5,8 @@ from starlette.requests import Request
 from app.legacy.domains import UserInfo
 from app.legacy.exceptions import UnauthorizedException, BadRequestException
 from app.legacy.exceptions import ErrorCode
-from app.utils.jwt import JwtUtil
-from app.utils.redis_client import RedisClient, get_redis
+from app.legacy.utils.jwt import JwtUtil
+from app.legacy.utils.redis_client import RedisClient, get_redis
 
 authorization_header = APIKeyHeader(name="Authorization",auto_error=False)
 

@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from starlette.responses import JSONResponse
 
 from app.legacy.db.models import User, Base, Cote, Message
-from app.utils.testing_helper import TestingHelper
+from app.legacy.utils.testing_helper import TestingHelper
 
 router = APIRouter()
 

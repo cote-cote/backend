@@ -4,7 +4,7 @@ from typing import Optional
 from pydantic.v1 import BaseSettings
 
 CURRENT_PATH = os.path.dirname(__file__)
-ROOT_PATH = os.path.abspath(os.path.join(CURRENT_PATH, '..', '..'))
+ROOT_PATH = os.path.abspath(os.path.join(CURRENT_PATH, '..'))
 
 
 class Settings(BaseSettings):

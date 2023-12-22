@@ -2,7 +2,7 @@ import redis
 from fastapi import Depends
 
 from app.configs import Settings, get_settings
-from app.utils.singleton import Singleton
+from app.legacy.utils.singleton import Singleton
 
 
 class RedisClient(metaclass=Singleton):

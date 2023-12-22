@@ -12,9 +12,9 @@ from app.legacy.domains.user.crud import UserCrud
 from app.legacy.domains.user.schema import RequestUserAuthorization, Token
 from app.legacy.exceptions import BadRequestException
 from app.legacy.middlewares.auth import UserInfo
-from app.utils.jwt import JwtUtil
-from app.utils.password import PasswordUtil
-from app.utils.redis_client import get_redis, RedisClient
+from app.legacy.utils.jwt import JwtUtil
+from app.legacy.utils import PasswordUtil
+from app.legacy.utils.redis_client import get_redis, RedisClient
 
 
 class UserService:

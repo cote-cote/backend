@@ -8,8 +8,8 @@ from app.legacy.domains.cote.schema import CoteResponse, CoteReadRequest, CoteCr
 from app.legacy.domains.oauth import UserInfo
 from app.legacy.exceptions import ForbiddenException
 from app.legacy.exceptions.error_code import ErrorCode
-from app.utils.jwt import JwtUtil
-from app.utils.redis_client import RedisClient, get_redis
+from app.legacy.utils.jwt import JwtUtil
+from app.legacy.utils.redis_client import RedisClient, get_redis
 
 
 class CoteService:
