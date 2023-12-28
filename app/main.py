@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.adapter.incoming.web import user
+from app.adapter.incoming.web import user, test
 from app.configs import get_settings, Settings
 
 
@@ -16,6 +16,7 @@ def create_app(_settings: Settings = get_settings()) -> FastAPI:
         allow_headers=['*'],
     )
 
+    _app.include_router(router=test.router, prefix='/test', tags=['test'])
     _app.include_router(router=user.router, prefix='/users', tags=['users'])
     return _app
 
