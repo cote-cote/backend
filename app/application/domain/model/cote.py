@@ -2,8 +2,8 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-from app.domain.model.repository import Repository
-from app.domain.model.user import User
+from app.application.domain.model.repository import Repository
+from app.application.domain.model.user import User
 
 
 class Cote(BaseModel):

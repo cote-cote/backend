@@ -1,11 +1,6 @@
 from abc import ABC, abstractmethod
 
-from pydantic import BaseModel
-
-
-class UserInfo(BaseModel):
-    user_name: str
-    user_email: str
+from app.application.port.incoming.oauth_signin_use_case import UserInfo
 
 
 class OauthPort(ABC):
