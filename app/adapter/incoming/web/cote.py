@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from starlette.responses import Response
 
 from app.adapter.incoming.web.schema.request.cote import CoteReadRequest, CoteCreateRequest, CoteUpdateRequest
+from app.adapter.incoming.web.schema.response.cote import CoteResponse
 from app.adapter.outbound.token import TokenAdapter
 from app.application.domain.service.cote_crud_service import CoteCrudService
 from app.application.port.incoming.cote.crud_use_case import CoteCrudUseCase
@@ -17,7 +18,7 @@ router = APIRouter()
 def get_cotes(
         cote_read_request: CoteReadRequest = Depends(),
         cote_crud_use_case: CoteCrudUseCase = Depends(CoteCrudService)
-):
+) -> list[CoteResponse]:
     cotes = cote_crud_use_case.get_cotes(cote_read=cote_read_request.to_cote_read())
     return cotes
 
@@ -27,7 +28,7 @@ def get_cote(
         cote_id: str,
         user_token: UserToken = Depends(authenticate_request),
         cote_crud_use_case: CoteCrudUseCase = Depends(CoteCrudService)
-):
+) -> CoteResponse:
     cote = cote_crud_use_case.get_cote(cote_id=cote_id)
     return cote
 
@@ -38,7 +39,7 @@ def create_cote(
         user_token: UserToken = Depends(authenticate_request),
         cote_crud_use_case: CoteCrudUseCase = Depends(CoteCrudService),
         token_port: TokenPort = Depends(TokenAdapter)
-):
+) -> CoteResponse:
     user_id = token_port.get_user_id(token=user_token.value)
     cote = cote_crud_use_case.create_cote(
         cote_create=cote_create_request.to_cote_create(owner_id=user_id)
@@ -53,7 +54,7 @@ def modify_cote(
         user_token: UserToken = Depends(authenticate_request),
         cote_crud_use_case: CoteCrudUseCase = Depends(CoteCrudService),
         token_port: TokenPort = Depends(TokenAdapter)
-):
+) -> CoteResponse:
     user_id = token_port.get_user_id(token=user_token.value)
     modified_cote = cote_crud_use_case.update_cote(
         cote_id=cote_id,

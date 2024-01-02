@@ -3,7 +3,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from app.application.domain.model import Cote
+from app.adapter.incoming.web.schema.response.cote import CoteResponse
 
 
 class CoteRead(BaseModel):
@@ -26,19 +26,19 @@ class CoteUpdate(BaseModel):
 
 class CoteCrudUseCase(ABC):
     @abstractmethod
-    def get_cotes(self, cote_read: CoteRead) -> list[Cote]:
+    def get_cotes(self, cote_read: CoteRead) -> list[CoteResponse]:
         pass
 
     @abstractmethod
-    def get_cote(self, cote_id: str) -> Cote:
+    def get_cote(self, cote_id: str) -> CoteResponse:
         pass
 
     @abstractmethod
-    def create_cote(self, cote_create: CoteCreate) -> Cote:
+    def create_cote(self, cote_create: CoteCreate) -> CoteResponse:
         pass
 
     @abstractmethod
-    def update_cote(self, cote_id: str, user_id: str, cote_update: CoteUpdate) -> Cote:
+    def update_cote(self, cote_id: str, user_id: str, cote_update: CoteUpdate) -> CoteResponse:
         pass
 
     @abstractmethod

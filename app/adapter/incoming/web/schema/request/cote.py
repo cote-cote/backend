@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Optional
 
 from fastapi import Query
@@ -62,12 +61,3 @@ class CoteUpdateRequest(BaseModel):
             owner_id=self.owner_id,
             capacity=self.capacity
         )
-
-
-class CoteResponse(BaseModel):
-    cote_id: str
-    cote_name: str
-    cote_problem_url: str
-    cote_capacity: int
-    cote_created_date: datetime
-    cote_updated_date: datetime
