@@ -4,11 +4,11 @@ from app.adapter.outbound.github_oauth import GithubOauthAdapter
 from app.adapter.outbound.redis_session import RedisSessionAdapter
 from app.adapter.outbound.token import TokenAdapter
 from app.adapter.outbound.user_create import UserCreateAdapter
-from app.application.port.incoming.oauth_signin_use_case import OauthSignInUseCase, UserInfo
-from app.application.port.outbound.oauth import OauthPort
-from app.application.port.outbound.session import SessionPort
-from app.application.port.outbound.token import TokenPort
-from app.application.port.outbound.user_create import UserCreatePort
+from app.port.incoming.oauth_signin_use_case import OauthSignInUseCase, UserInfo
+from app.port.outbound.oauth import OauthPort
+from app.port.outbound.session import SessionPort
+from app.port.outbound.token import TokenPort
+from app.port.outbound.user_create import UserCreatePort
 
 
 class GithubOauthSignInService(OauthSignInUseCase):

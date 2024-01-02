@@ -4,10 +4,10 @@ from app.adapter.incoming.web.schema.response.cote import CoteResponse
 from app.adapter.outbound.cote_crud import CoteCrudAdapter
 from app.adapter.outbound.cote_lock_key import CoteLockKeyAdapter
 from app.adapter.outbound.redis_concurrency import RedisConcurrencyAdapter
-from app.application.port.incoming.cote.crud_use_case import CoteCrudUseCase, CoteUpdate, CoteCreate, CoteRead
-from app.application.port.outbound.concurrency_port import ConcurrencyPort
-from app.application.port.outbound.cote_crud import CoteCrudPort
-from app.application.port.outbound.cote_lock_key import CoteLockKeyPort
+from app.port.incoming.cote.crud_use_case import CoteCrudUseCase, CoteUpdate, CoteCreate, CoteRead
+from app.port.outbound.concurrency_port import ConcurrencyPort
+from app.port.outbound.cote_crud import CoteCrudPort
+from app.port.outbound.cote_lock_key import CoteLockKeyPort
 from app.exception import ForbiddenException
 from app.exception.error_code import ErrorCode
 

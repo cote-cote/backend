@@ -2,7 +2,7 @@ from fastapi import Depends
 from sqlalchemy import Engine
 from sqlalchemy.orm import DeclarativeMeta
 
-from app.application.entity import Base
+from app.entity import Base
 from app.dependency.db import get_engine
 
 

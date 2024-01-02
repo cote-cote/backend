@@ -2,9 +2,9 @@ import contextlib
 
 from fastapi import Depends
 
-from app.application.port.outbound.concurrency_port import ConcurrencyPort
 from app.configs import get_settings, Settings
 from app.dependency.redis import RedisClient, get_redis
+from app.port.outbound.concurrency_port import ConcurrencyPort
 
 
 class RedisConcurrencyAdapter(ConcurrencyPort):

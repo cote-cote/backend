@@ -2,7 +2,7 @@ from enum import Enum
 
 from fastapi import Depends
 
-from app.application.domain.service.github_oauth_sign_in import GithubOauthSignInService
+from app.domain.service.github_oauth_sign_in import GithubOauthSignInService
 
 
 class OauthProvider(str, Enum):

@@ -1,7 +1,7 @@
 import requests
 from fastapi import Depends
 
-from app.application.port.outbound.oauth import OauthPort, UserInfo
+from app.port.outbound.oauth import OauthPort, UserInfo
 from app.configs import Settings, get_settings
 
 

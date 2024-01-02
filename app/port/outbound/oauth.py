@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from app.application.port.incoming.oauth_signin_use_case import UserInfo
+from app.port.incoming.oauth_signin_use_case import UserInfo
 
 
 class OauthPort(ABC):
