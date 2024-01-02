@@ -38,7 +38,7 @@ class CoteCrudUseCase(ABC):
         pass
 
     @abstractmethod
-    def update_cote(self, cote_id: str, user_id: str, update_cote: CoteUpdate) -> Cote:
+    def update_cote(self, cote_id: str, user_id: str, cote_update: CoteUpdate) -> Cote:
         pass
 
     @abstractmethod

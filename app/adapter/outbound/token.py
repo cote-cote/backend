@@ -29,3 +29,10 @@ class TokenAdapter(TokenPort):
             return payload
         except InvalidSignatureError:
             raise Exception("Invalid token has been provided")
+
+    def get_user_id(self, token: str) -> str:
+        try:
+            payload = jwt.decode(token, self.settings.JWT_SECRET, algorithms=["HS256"])
+            return payload["data"]["user_id"]
+        except (InvalidSignatureError, KeyError):
+            raise Exception("Invalid token has been provided")

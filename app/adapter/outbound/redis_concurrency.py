@@ -1,3 +1,5 @@
+import contextlib
+
 from fastapi import Depends
 
 from app.application.port.outbound.concurrency_port import ConcurrencyPort
@@ -15,6 +17,7 @@ class RedisConcurrencyAdapter(ConcurrencyPort):
         self.redis = redis
         self.settings = settings
 
+    @contextlib.contextmanager
     def lock(self, key: str) -> None:
         with self.redis.get_session() as redis:
             lock = redis.lock(
