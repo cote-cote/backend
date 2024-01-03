@@ -1,6 +1,6 @@
 import abc
 
-from app.entity import Cote
+from app.domain.entity import Cote
 from app.port.incoming.cote.crud_use_case import CoteCreate, CoteUpdate
 
 

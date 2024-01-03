@@ -4,7 +4,7 @@ from fastapi import Depends
 from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 
-from app.entity import Cote
+from app.domain.entity import Cote
 from app.port.incoming.cote.crud_use_case import CoteUpdate, CoteCreate
 from app.port.outbound.cote_crud import CoteCrudPort
 from app.dependency.db import get_db

@@ -5,7 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from app.adapter.incoming.web import user, test, cote
 from app.configs import get_settings, Settings
 from app.exception import BadRequestException, NotFoundException, UnauthorizedException, ForbiddenException
-from app.exception.exception_handler import bad_request_exception_handler, not_found_exception_handler, \
+from app.exception.handler import bad_request_exception_handler, not_found_exception_handler, \
     unauthorized_exception_handler, forbidden_exception_handler
 
 

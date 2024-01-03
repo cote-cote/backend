@@ -2,8 +2,7 @@ from fastapi import Depends
 from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 
-from app import entity
-from app.domain import model
+from app.domain import model, entity
 from app.port.incoming.oauth_signin_use_case import UserInfo
 from app.port.outbound.user_create import UserCreatePort
 from app.dependency.db import get_db

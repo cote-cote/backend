@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import Column, BigInteger, Integer, String, ForeignKey, Text, DateTime, func
 from sqlalchemy.orm import Mapped, relationship
 
-from app.entity import Base
+from app.domain.entity import Base
 
 
 class Message(Base):
