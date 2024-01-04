@@ -4,8 +4,8 @@ import jwt
 from fastapi import Depends
 from jwt import InvalidSignatureError
 
-from app.application.port.outbound.token import TokenPort
 from app.configs import Settings, get_settings
+from app.port.outbound.token import TokenPort
 
 
 class TokenAdapter(TokenPort):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from app.application.port.outbound.oauth import UserInfo
-from app.application.domain.model.user import User
+from app.port.outbound.oauth import UserInfo
+from app.domain.model.user import User
 
 
 class UserCreatePort(ABC):

@@ -3,7 +3,7 @@ from typing import Optional
 from fastapi import Query
 from pydantic import BaseModel
 
-from app.application.port.incoming.cote.crud_use_case import CoteRead, CoteCreate, CoteUpdate
+from app.port.incoming.cote.crud_use_case import CoteRead, CoteCreate, CoteUpdate
 from app.exception import BadRequestException
 from app.exception.error_code import ErrorCode
 

@@ -2,8 +2,8 @@ from typing import Union
 
 from fastapi import Depends
 
-from app.application.port.outbound.session import SessionPort
 from app.dependency.redis import RedisClient, get_redis
+from app.port.outbound.session import SessionPort
 
 
 class RedisSessionAdapter(SessionPort):

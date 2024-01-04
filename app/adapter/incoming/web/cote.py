@@ -6,10 +6,10 @@ from starlette.responses import Response
 from app.adapter.incoming.web.schema.request.cote import CoteReadRequest, CoteCreateRequest, CoteUpdateRequest
 from app.adapter.incoming.web.schema.response.cote import CoteResponse
 from app.adapter.outbound.token import TokenAdapter
-from app.application.domain.service.cote_crud_service import CoteCrudService
-from app.application.port.incoming.cote.crud_use_case import CoteCrudUseCase
-from app.application.port.outbound.token import TokenPort
+from app.domain.service.cote_crud_service import CoteCrudService
+from app.port.incoming.cote.crud_use_case import CoteCrudUseCase
 from app.dependency.auth import authenticate_request, UserToken
+from app.port.outbound.token import TokenPort
 
 router = APIRouter()
 

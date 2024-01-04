@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from starlette.responses import JSONResponse
 
 from app.adapter.outbound.testing_helper import TestingHelper
-from app.application.entity import User, Cote, Message, Base
+from app.domain.entity import User, Cote, Message, Base
 
 router = APIRouter()
 

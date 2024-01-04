@@ -4,9 +4,9 @@ from pydantic import BaseModel
 from starlette.requests import Request
 
 from app.adapter.outbound.redis_session import RedisSessionAdapter
-from app.application.port.outbound.session import SessionPort
 from app.exception import UnauthorizedException, BadRequestException
 from app.exception.error_code import ErrorCode
+from app.port.outbound.session import SessionPort
 
 authorization_header = APIKeyHeader(name="Authorization", auto_error=False)
 

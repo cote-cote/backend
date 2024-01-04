@@ -1,7 +1,7 @@
 import abc
 
-from app.application.entity import Cote
-from app.application.port.incoming.cote.crud_use_case import CoteCreate, CoteUpdate
+from app.domain.entity import Cote
+from app.port.incoming.cote.crud_use_case import CoteCreate, CoteUpdate
 
 
 class CoteCrudPort(abc.ABC):

@@ -3,8 +3,8 @@ from datetime import datetime
 from sqlalchemy import Column, String, DateTime, func
 from sqlalchemy.orm import Mapped, relationship
 
-from app.application.entity import Base
-from app.application.entity.util import generate_uuid
+from app.domain.entity import Base
+from app.domain.entity.util import generate_uuid
 
 
 class User(Base):

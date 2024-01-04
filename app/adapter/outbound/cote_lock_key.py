@@ -1,4 +1,4 @@
-from app.application.port.outbound.cote_lock_key import CoteLockKeyPort
+from app.port.outbound.cote_lock_key import CoteLockKeyPort
 
 
 class CoteLockKeyAdapter(CoteLockKeyPort):
